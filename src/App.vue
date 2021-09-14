@@ -1,32 +1,56 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <Navbar />
+    <v-main>
+      <router-view/>
+    </v-main>
+    <Footer />
+  </v-app>
 </template>
 
+<script>
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+export default {
+  name: 'App',
+  components: { Navbar, Footer },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+html { scroll-behavior: smooth; }
+/* Container */
+.container {
+  max-width: 1250px !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  padding: 12px !important;
+}
+/* Button */
+.v-btn {
+  text-transform: capitalize !important;
+  font-weight: 400 !important;
+  font-size: 12px !important;
 }
 
-#nav {
-  padding: 30px;
+/* Image */
+img {
+  height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+/* Inputs */
+.v-input input, .v-input textarea { 
+  font-size: 13px !important; 
+  letter-spacing: .75px !important; 
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.v-input .v-label { 
+  font-size: 13px !important; 
+  letter-spacing: 1px !important; 
 }
+.v-input__icon .v-icon.v-icon, .v-select-list .v-icon.v-icon { font-size: 16px !important; }
+.v-text-field--outlined.v-input--is-focused fieldset { border: 1px solid #4a4dc7  !important; }
+.v-text-field--outlined.v-input--has-state fieldset { border: 1px solid #f36c27 !important; }
 </style>
